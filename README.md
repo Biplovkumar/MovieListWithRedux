@@ -22,3 +22,15 @@
           Use Google Translate to add Arabic Translations.
           The source code should be posted in a public repository under your personal GitHub account.
           The task should be submitted with the URL of the Github Repository.
+
+
+#Step to run application: 
+
+         1. Clone from https://github.com/biplovNagarro/MovieListWithRedux.git
+         2. cd MovieListWithRedux
+         3. Install Node Modules
+         4. Run the application with yarn ios/android.
+
+
+
+

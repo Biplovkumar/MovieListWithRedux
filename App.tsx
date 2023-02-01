@@ -1,12 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -16,7 +8,6 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
 import {
   Colors,
   DebugInstructions,
@@ -24,6 +15,36 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Button,Icon } from 'react-native-elements';
+
+function SecondScreen() {
+  return (
+    <View style={styles.container}>
+       <Text>Second Screen</Text>
+      {/* <Button title="Hey!" /> */}
+      <Icon
+  raised
+  name='camera'
+  type='font-awesome'
+  color='#f50'
+  onPress={() => console.log('hello')} />
+    </View>
+  );
+}
+
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+
+import type {PropsWithChildren} from 'react';
+
+
+
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -55,7 +76,8 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
-function App(): JSX.Element {
+function FirstScreen({navigation}): JSX.Element {
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -77,7 +99,7 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+            Edit <Text onPress={()=>  navigation.navigate("Second")} style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
           </Section>
           <Section title="See Your Changes">
@@ -96,7 +118,15 @@ function App(): JSX.Element {
   );
 }
 
+
+
+
 const styles = StyleSheet.create({
+  container:{
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
@@ -115,4 +145,18 @@ const styles = StyleSheet.create({
   },
 });
 
+
+
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={FirstScreen} options={{ title: 'Home'}}/>
+        <Stack.Screen name="Second" component={SecondScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 export default App;

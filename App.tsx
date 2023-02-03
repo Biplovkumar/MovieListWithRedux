@@ -1,162 +1,27 @@
+
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Button,Icon } from 'react-native-elements';
+import 'react-native-gesture-handler';
+import MainRoute from './src/navigator/index';
+import { Provider as StoreProvider } from 'react-redux';
+import FlashMessage from 'react-native-flash-message';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './src/redux/store/index'
+// import { LogBox } from 'react-native';
+// LogBox.ignoreLogs(['Warning: ...', 'Warning:','VirtualizedList:', "Accessing the 'state'"]); // Ignore log notification by message
+// // LogBox.ignoreAllLogs();//Ignore all log notifications
 
-function SecondScreen() {
-  return (
-    <View style={styles.container}>
-       <Text>Second Screen</Text>
-      {/* <Button title="Hey!" /> */}
-      <Icon
-  raised
-  name='camera'
-  type='font-awesome'
-  color='#f50'
-  onPress={() => console.log('hello')} />
-    </View>
-  );
-}
-
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import type {PropsWithChildren} from 'react';
-
-
-
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function FirstScreen({navigation}): JSX.Element {
-
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+const App = (props:any) => {
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text onPress={()=>  navigation.navigate("Second")} style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+    <StoreProvider store={store}>
+      <PersistGate persistor={persistor}>
+          <MainRoute />
+          <FlashMessage position="bottom" duration={2000} />
+      </PersistGate>
+    </StoreProvider>
+  )
+
+};
 
 
-
-
-const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-
-
-const Stack = createNativeStackNavigator();
-
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={FirstScreen} options={{ title: 'Home'}}/>
-        <Stack.Screen name="Second" component={SecondScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
 export default App;

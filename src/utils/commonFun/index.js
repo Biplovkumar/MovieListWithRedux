@@ -1,9 +1,11 @@
 /* eslint-disable prettier/prettier */
 import { Alert } from 'react-native';
-// import NetInfo from "@react-native-community/netinfo";
+import NetInfo from "@react-native-community/netinfo";
 // import { useSelector } from 'react-redux'
 import { store, persistor } from '../../redux/store/index'
 import { removeUser } from '../../redux/actions';
+
+
 
 
 
@@ -38,7 +40,7 @@ export const validatePin = (val) => {
 
 export const validateYear = (valN) => {
   let val = 0
-  if (valN) {val = valN.trim() }
+  if (valN) { val = valN.trim() }
   let result = false
   console.log('validateYear', val);
   var reg = /^\d{4}$/;
@@ -263,12 +265,17 @@ export const FivePercent = (givenPrice) => {
 
 export const GetStoreData = () => {
   const S = store.getState();
-  console.log('==========sss==========================');
-  console.log(S);
-  console.log('====================================');
   if (S && S.login && S.login.data && Object.keys(S.login.data).length != 0)
-  return S.login.data
+    return S.login.data
 }
+
+export const GetLangData = () => {
+  const S = store.getState();
+  if (S && S.lang && S.lang.data && Object.keys(S.lang.data).length != 0)
+    return S.lang.data
+}
+
+
 
 export const DispatchData = (data) => {
   const S = store.dispatch(data);
@@ -384,11 +391,11 @@ export const RemoveSpaceTag = (htmlString) => {
 
 
 
-export const SortDateFunc = (Arr,temp) => {
+export const SortDateFunc = (Arr, temp) => {
   Arr.sort(function (a, b) {
-  return new Date(a.temp) - new Date(b.temp);
-});
-return Arr
+    return new Date(a.temp) - new Date(b.temp);
+  });
+  return Arr
 }
 
 
@@ -399,3 +406,9 @@ export const GetParentStoreData = () => {
     return S.Child.ChildData
 }
 
+
+export const resetStack = (props, name) => {
+  props.navigation.reset({ index: 0, routes: [{ name: name }] })
+}
+
+export const navigateTo = (props, name) => { props.navigation.navigate(name) }

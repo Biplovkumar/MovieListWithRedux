@@ -1,18 +1,16 @@
 import Type from '../../../redux/constants/index'
 
-const LoginStatus = {
-    data: {},
+const LangStatus = {
+    data: 'en'
 }
 
 
-export const loginReducer = (state = LoginStatus, action:any) => {
+export const languageSelectionReducer = (state = LangStatus, action: any) => {
     switch (action.type) {
-        case Type.LOGIN:
+        case Type.ChangeLang:
             return {
                 ...state, data: action.payload,
             }
-        case Type.LOGOUT:
-            return null;
     }
     return state;
 }

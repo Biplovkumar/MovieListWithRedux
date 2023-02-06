@@ -20,7 +20,7 @@ import '../../utils/translation/i18n';
 import {useTranslation} from 'react-i18next';
 import {LOGIN_SCREEN, MOVIE_SCREEN} from '../../route/index';
 
-const LanguageSelection = (props: any) => {
+const LanguageScreen = (props: any) => {
   const {t, i18n} = useTranslation();
   const [state, setState] = useState({loading: true, checked: true});
 
@@ -54,10 +54,10 @@ const LanguageSelection = (props: any) => {
   //LogoImage added in useCallback so that will prevent re rendering
   const LogoImage = useCallback(() => {
     return (
-      <View style={styles.langLogoCont}>
+      <View style={styles.languageLogoContainer}>
         <CommonImage
           source={config.tmdbLogoImage}
-          imgStyle={styles.LoginLogo}
+          imgStyle={styles.LoginImgLogoStyle}
         />
       </View>
     );
@@ -67,7 +67,7 @@ const LanguageSelection = (props: any) => {
   const SelectLang = useCallback(() => {
     return (
       <View style={styles.mv20}>
-        <Text style={styles.splashTitle}>{t('selectLanguage')}</Text>
+        <Text style={styles.selectLanguageTitle}>{t('selectLanguage')}</Text>
       </View>
     );
   }, []);
@@ -80,7 +80,7 @@ const LanguageSelection = (props: any) => {
   let English = 'English';
   return (
     <ImageBackground source={config.backgroundImage} style={styles.fl1}>
-      <SafeAreaView style={styles.fl1AlignCenter}>
+      <SafeAreaView style={styles.flex1AlignCenter}>
         {state.loading && <Loader />}
         <LogoImage />
 
@@ -112,4 +112,4 @@ const LanguageSelection = (props: any) => {
   );
 };
 
-export default LanguageSelection;
+export default LanguageScreen;

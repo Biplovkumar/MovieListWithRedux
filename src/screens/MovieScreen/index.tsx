@@ -8,7 +8,7 @@ import {
   RemoveData,
   resetStack,
 } from '../../utils/commonFun';
-import {LOGIN_SCREEN} from '../../route';
+import {LOGIN_SCREEN, LANGUAGE_SCREEN} from '../../route';
 import {getApiService} from '../../services/Services';
 import config from '../../utils/config/index/index';
 import styles from '../../utils/styles';
@@ -45,7 +45,7 @@ function MovieScreen(props: any) {
           type="font-awesome"
           color={colors.headerBtn}
           onPress={() => {
-            navigateTo(props, 'LanguageSelection');
+            navigateTo(props, LANGUAGE_SCREEN);
           }}
         />
       ),
@@ -115,7 +115,7 @@ function MovieScreen(props: any) {
     <ImageBackground source={config.backgroundImage} style={styles.fl1}>
       <View style={styles.mt50}>
         <FlatList
-          style={styles.movieList}
+          style={styles.movieFlatListStyle}
           data={state.MovieList}
           extraData={state.MovieList}
           renderItem={renderItem}

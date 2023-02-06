@@ -115,12 +115,12 @@ const LoginScreen = (props: any) => {
   //Logo Image
   const LogoImage = useCallback(() => {
     return (
-      <View style={styles.fl03AlignCenter}>
-        <Text style={styles.screenTitle}>{t('LoginScreen')}</Text>
-        <View style={styles.langLogoCont}>
+      <View style={styles.flex03AlignCenter}>
+        <Text style={styles.screenTitleLogin}>{t('LoginScreen')}</Text>
+        <View style={styles.languageLogoContainer}>
           <CommonImage
             source={config.tmdbLogoImage}
-            imgStyle={styles.LoginLogo}
+            imgStyle={styles.LoginImgLogoStyle}
           />
         </View>
       </View>
@@ -160,7 +160,7 @@ const LoginScreen = (props: any) => {
           automaticallyAdjustKeyboardInsets={true}>
           <LogoImage />
 
-          <View style={[styles.fl07, styles.mh_15]}>
+          <View style={[styles.flex07, styles.mh_15]}>
             <CommonInput
               placeholder={t('email')}
               inputRef={emailRef}
@@ -169,7 +169,7 @@ const LoginScreen = (props: any) => {
               keyboardType="email-address"
               leftIcon={eng && emailIcon}
               rightIcon={!eng && emailIcon}
-              inputStyle={!eng && styles.tlRight}
+              inputStyle={!eng && styles.textAlignRight}
               errorMessage={state.emailError}
               returnKeyType="next"
               onSubmitEditing={emailOnSubmit}
@@ -188,7 +188,7 @@ const LoginScreen = (props: any) => {
               label={t('password')}
               leftIcon={eng && passIcon}
               rightIcon={!eng && passIcon}
-              inputStyle={!eng && styles.tlRight}
+              inputStyle={!eng && styles.textAlignRight}
               errorMessage={state.passError}
               returnKeyType="done"
               onSubmitEditing={backDropPress}

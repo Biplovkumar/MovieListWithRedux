@@ -1,8 +1,9 @@
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import { Input } from 'react-native-elements'
 import Colors from '../../utils/colors/index'
-import Styles from '../compStyles/index'
+const { height, width } = Dimensions.get('window');
+let little = height / 7
 
 // =================Props of Input===================
 const CommonInput = (props) => {
@@ -27,20 +28,29 @@ const CommonInput = (props) => {
       returnKeyType={returnKeyType}
       autoCapitalize={autoCapitalize ? autoCapitalize : "none"}
       keyboardAppearance="light"
-      labelStyle={[Styles(value).InputLabel, labelStyle]}
+      labelStyle={[styles.InputLabel, labelStyle]}
       placeholderTextColor={placeholderTextColor ? placeholderTextColor : Colors.InputPlace}
-      errorStyle={Styles().InputError}
+      errorStyle={styles.InputError}
       errorMessage={errorMessage}
       leftIcon={leftIcon}
-      leftIconContainerStyle={[Styles().InputLIcon, leftIconContainerStyle]}
-      inputContainerStyle={[Styles().InputCont, inputContainerStyle]}
-      inputStyle={[Styles().InputStyle, inputStyle]}
+      leftIconContainerStyle={[styles.InputLIcon, leftIconContainerStyle]}
+      inputContainerStyle={[styles.InputCont, inputContainerStyle]}
+      inputStyle={[styles.InputStyle, inputStyle]}
       rightIcon={rightIcon}
       onSubmitEditing={onSubmitEditing}
       onChangeText={onChangeText}
     />
   );
 }
+
+const styles = StyleSheet.create({
+  InputLabel: {  },
+  InputError: { fontSize: height / 65 },
+  InputLIcon: { paddingLeft: height / little, paddingRight: height / little, },
+  InputCont: { width: "100%", height: 50, backgroundColor: Colors.InputBG, borderRadius: 25, justifyContent: "center", marginTop: 10, padding: 20, borderBottomWidth: 0 },
+  InputStyle: { fontSize: height / 45, color: Colors.IText },
+});
+
 
 
 export default CommonInput;

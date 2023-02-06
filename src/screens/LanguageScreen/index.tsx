@@ -6,7 +6,7 @@ import { setLanguage } from '../../redux/actions';
 import CommonButton from '../../components/commonButton';
 import CommonCheckBox from '../../components/commonCheckBox';
 import CommonImage from '../../components/commonImage';
-import Loader from '../../components/Loader';
+import Loader from '../../components/commonLoader';
 import colors from '../../utils/colors/index';
 import config from '../../utils/config/index/index';
 import styles from '../../utils/styles/index';
@@ -76,7 +76,6 @@ const LanguageSelection = (props: any) => {
       <SafeAreaView style={styles.fl1AlignCenter}>
 
         {state.loading && <Loader />}
-
         <LogoImage />
 
         <View style={styles.fl1}>

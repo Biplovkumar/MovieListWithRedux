@@ -1,10 +1,10 @@
 import React from "react";
 import { CheckBox } from 'react-native-elements'
 import Colors from '../../utils/colors/index'
-import Styles from '../compStyles/index'
+import { StyleSheet } from "react-native";
 
 // =================Props of checkbox===================
-const commonCheckBox = (props) => {
+const CommonCheckBox = (props) => {
   let { title, checkRef, textStyle, containerStyle, iconType, checkedIcon, uncheckedIcon, checkedColor, uncheckedColor,
     checked, onPress } = props;
 
@@ -16,7 +16,7 @@ const commonCheckBox = (props) => {
       title={title}
       textStyle={textStyle}
       iconRight
-      containerStyle={[Styles().checkboxCont, containerStyle]}
+      containerStyle={[styles.checkboxCont, containerStyle]}
       iconType={iconType}
       checkedIcon={checkedIcon ? checkedIcon : 'dot-circle-o'}
       uncheckedIcon={uncheckedIcon ? uncheckedIcon : 'circle-o'}
@@ -28,5 +28,8 @@ const commonCheckBox = (props) => {
   );
 }
 
+const styles = StyleSheet.create({
+  checkboxCont: { borderRadius: 25, borderColor: Colors.InputLabel, height: 50, justifyContent: 'center', alignItems: 'center', backgroundColor: 'transparent' },
+});
 
-export default commonCheckBox;
+export default CommonCheckBox;

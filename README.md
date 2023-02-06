@@ -1,5 +1,7 @@
 # MovieListWithRedux
- This task with me to assess the technical skills for react native developer.
+
+   The TMDB app was given to me to assess my technical skills as a reactive developer.
+
 
 #Application which meets the following criteria:
 
@@ -17,7 +19,10 @@
        * Using Restful Web APIs load the list of popular Movies on this screen in a grid view with number of columns as 
        * Each Item contains the name and image. Name to be taken from the “title” and image from “poster_path” from the response. 
        * For Screen 2 you will need to create a free account on https://www.themoviedb.org and use their APIs to load the list of Popular                             Movies.https://developers.themoviedb.org/3/movies/get-popular-movies.  
+ 
+ 
  #Notes: 
+
           Feel free to use any design template that follows the modern material design language.App should be bi-lingual. 
           Use Google Translate to add Arabic Translations.
           The source code should be posted in a public repository under your personal GitHub account.
@@ -33,7 +38,7 @@
 
 
 #Done Tasks application: 
-
+     
        1. Created Language change screen
        2. Created Login screen
        3. Created Movie screen

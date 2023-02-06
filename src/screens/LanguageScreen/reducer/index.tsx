@@ -1,6 +1,7 @@
 import Type from '../../../redux/constants/index';
 
 const LangStatus = {
+  languageClicked : false,
   data: 'en',
 };
 
@@ -9,7 +10,8 @@ export const languageSelectionReducer = (state = LangStatus, action: any) => {
   switch (action.type) {
     case Type.ChangeLang:
       return {
-        ...state,
+        ...state, 
+        languageClicked : action.payload ? true : false,
         data: action.payload,
       };
   }

@@ -1,7 +1,8 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {Text, View, ImageBackground, Keyboard, TextInput} from 'react-native';
 import {
   DispatchData,
+  GetLangData,
   resetStack,
   validateEmail,
   validatePass,
@@ -35,6 +36,19 @@ const LoginScreen = (props: any) => {
     loading: false,
     btnDisabled: true,
   });
+
+
+  //Getting language data
+  useEffect(() => {
+    checkLangData();
+  }, []);
+
+  //check default lang data and change language according to the redux
+  const checkLangData = async () => {
+    const lang = GetLangData();
+    console.log('------',lang )
+    i18n.changeLanguage(lang.data);
+  };
 
   //saving User data via Common function
   const handleAddUserData = () => {

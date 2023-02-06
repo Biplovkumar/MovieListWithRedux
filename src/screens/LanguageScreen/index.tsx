@@ -32,6 +32,10 @@ const LanguageScreen = (props: any) => {
   //check default lang data and change language according to the redux
   const checkLangData = async () => {
     const lang = GetLangData();
+
+    console.log('------',lang )
+
+
     i18n.changeLanguage(lang.data);
     if (lang && lang.data && lang.data === 'ar') {
       setState({loading: false, checked: false});

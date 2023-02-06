@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from '../screens/LoginScreen/index';
 import MovieScreen from '../screens/MovieScreen/index';
 import LanguageScreen from '../screens/LanguageScreen/index';
-import {GetStoreData} from '../utils/commonFun';
+import {GetLangClickedData, GetStoreData} from '../utils/commonFun';
 import {LOGIN_SCREEN, MOVIE_SCREEN, LANGUAGE_SCREEN} from '../route';
 
 //created stack instance
@@ -16,12 +16,13 @@ import '../utils/translation/i18n';
 function MainRoute() {
   //Getting store data so that user will be navigated on repective screen like home and lon screen
   const userloggedin = GetStoreData();
+  const langClicked = GetLangClickedData();
 
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{headerTitleAlign: 'center'}}
-        initialRouteName={!userloggedin ? LANGUAGE_SCREEN : MOVIE_SCREEN}>
+        initialRouteName={userloggedin ? MOVIE_SCREEN : langClicked ? LOGIN_SCREEN : LANGUAGE_SCREEN }>
         {/* //Change Language screen */}
         <Stack.Screen
           name={LANGUAGE_SCREEN}

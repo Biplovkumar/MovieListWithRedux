@@ -53,6 +53,16 @@ export const GetLangData = () => {
     return S.lang.data;
 };
 
+
+export const GetLangClickedData = () => {
+  const S = store.getState();
+  if (S && S.lang && S.lang.languageClicked)
+    return S.lang.languageClicked;
+};
+
+
+
+
 export const DispatchData = data => {
   const S = store.dispatch(data);
   return S;

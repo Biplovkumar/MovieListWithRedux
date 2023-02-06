@@ -13,24 +13,24 @@ import axios from 'axios';
 //for host & Apis url
 import Config from '../../utils/config/index';
 
-import { CheckNet } from '../../utils/commonFun';
-
+import {CheckNet} from '../../utils/commonFun';
 
 export default class Api {
   private _name: any;
   constructor(name: any) {
     this._name = name;
   }
-}//end of class
-
+} //end of class
 
 export const getApiService = async (URL: any) => {
   let Conn = await CheckNet();
-  if (!Conn) { throw 'No internet connection' } else {
+  if (!Conn) {
+    throw 'No internet connection';
+  } else {
     let Auth = {
       method: 'GET',
       url: URL,
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+      headers: {Accept: 'application/json', 'Content-Type': 'application/json'},
     };
     console.log('authOptions', Auth);
     return axios(Auth)
@@ -38,56 +38,29 @@ export const getApiService = async (URL: any) => {
         console.log('axios response', response);
         return response.data;
       })
-      .catch((error) => {
+      .catch(error => {
         handleErrors(error);
       });
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+};
 
 function handleErrors(error: any) {
-  console.log('Error====> :- ', error)
+  console.log('Error====> :- ', error);
   if (!error.response) {
     // network error
-    throw 'Please check your network connection.'
-  }
-  else {
+    throw 'Please check your network connection.';
+  } else {
     // http status code
-    const code = error.response.status
+    const code = error.response.status;
     // response data
-    const response = error.response.data
-    console.log('code :- ' + code + ' response :- ', response)
+    const response = error.response.data;
+    console.log('code :- ' + code + ' response :- ', response);
 
     if (code >= 400 && code < 500) {
-      throw 'Please Provide valid credential.'
-    }
-    else {
+      throw 'Please Provide valid credential.';
+    } else {
       //Server Errror > 500
-      throw 'Oops server error occurred'
+      throw 'Oops server error occurred';
     }
   }
 }

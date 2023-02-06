@@ -1,11 +1,11 @@
-import React from "react";
-import { ActivityIndicator } from "react-native";
-import { Image } from 'react-native-elements'
+import React from 'react';
+import {ActivityIndicator} from 'react-native';
+import {Image} from 'react-native-elements';
 
 // =================Props of Image===================
 
-const CommonImage = (props) => {
-  let { source, imgStyle, key } = props;
+const CommonImage = props => {
+  let {source, imgStyle, key} = props;
 
   // =================Image===================
   return (
@@ -17,7 +17,6 @@ const CommonImage = (props) => {
       PlaceholderContent={<ActivityIndicator />}
     />
   );
-}
-
+};
 
 export default CommonImage;

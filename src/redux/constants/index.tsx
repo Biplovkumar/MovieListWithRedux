@@ -1,13 +1,10 @@
 //Constant type for redux.
-const Login = 'LOGIN'
-const Logout = 'LOGOUT'
-const ChangeLang = 'ChangeLang'
-
-
+const Login = 'LOGIN';
+const Logout = 'LOGOUT';
+const ChangeLang = 'ChangeLang';
 
 export default {
-    LOGIN: Login,
-    LOGOUT: Logout,
-    ChangeLang: ChangeLang,
-
-}
+  LOGIN: Login,
+  LOGOUT: Logout,
+  ChangeLang: ChangeLang,
+};

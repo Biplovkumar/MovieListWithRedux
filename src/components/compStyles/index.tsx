@@ -31,7 +31,7 @@ export default StyleSheet.create((props: any) => (
         GlobalButt: { fontSize: height / 50, color: props && props.LabelColor, marginHorizontal: height / 100 },
         loginBtnTextStyle: { fontWeight: "bold", fontSize: 18, color: "rgba(4,4,4,0.7)" },
         disabledTitleStyle: { fontSize: 18, color: "rgba(84,116,180,0.5)" },
-        loginBtnStyle: { width: "100%", backgroundColor: "rgb(158,198,116)", borderRadius: 25, height: 50, marginTop: 40 },
+        loginBtnStyle: { width: "100%", backgroundColor: "rgb(158,198,116)", borderRadius: 25, height: 50 },
         disabledBtnStyle: { width: "100%", backgroundColor: 'transparent', borderWidth: 0.5, borderRadius: 25, height: 50, marginTop: 40 },
 
 

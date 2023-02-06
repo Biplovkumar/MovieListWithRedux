@@ -210,6 +210,8 @@ export default StyleSheet.create({
 
 
 
+    mh_15: { marginHorizontal: '15%'},
+    mh_20: { marginHorizontal: '20%'},
     mh20: { marginHorizontal: height / 20, },
     mh40: { marginHorizontal: height / 40, },
     mh80: { marginHorizontal: height / 80, },

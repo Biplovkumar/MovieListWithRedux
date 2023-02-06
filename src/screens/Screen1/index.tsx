@@ -108,8 +108,7 @@ const Screen1 = (props: any) => {
 
   return (
     <ImageBackground source={config.backgroundImage} style={styles.fl1}>
-      <SafeAreaView onStartShouldSetResponder={() => { onValidateLoginFields(); return true }} 
-       style={state.loading ? styles.fl1 : styles.fl1AlignCenter}>
+      <SafeAreaView onStartShouldSetResponder={() => { onValidateLoginFields(); return true }} style={styles.fl1}>
 
         <ScrollView
           keyboardShouldPersistTaps='always'
@@ -119,7 +118,7 @@ const Screen1 = (props: any) => {
 
           <LogoImage />
 
-          <View style={styles.fl07}>
+          <View style={[styles.fl07, styles.mh_15]}>
             <CommonInput
               placeholder={t("email")}
               inputRef={emailRef}
@@ -149,18 +148,20 @@ const Screen1 = (props: any) => {
               inputStyle={lang === 'ar' && styles.tlRight}
               errorMessage={state.passError}
               returnKeyType='done'
-              onSubmitEditing={() => { onValidateLoginFields(); return true}}
+              onSubmitEditing={() => { onValidateLoginFields(); return true }}
               onChangeText={(text: any) => setState({ ...state, password: text, passError: '' })}
+            />
+
+            <CommonButton
+              title={t("login")}
+              loading={state.loading}
+              onPress={onPressLogin}
+              disabled={state.btnDisabled}
             />
           </View>
 
 
-          <CommonButton
-            title={t("login")}
-            loading={state.loading}
-            onPress={onPressLogin}
-            disabled={state.btnDisabled}
-          />
+
 
           <View style={styles.h50} />
         </ScrollView>

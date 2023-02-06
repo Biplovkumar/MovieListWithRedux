@@ -89,6 +89,9 @@ const LanguageSelection = (props: any) => {
             onPress={() => uncheckBox()}
           />
 
+
+         <View style={styles.h30} />
+
           <CommonButton
             title={t("submit")}
             onPress={() => onPressSubmit()}

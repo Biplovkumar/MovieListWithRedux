@@ -11,7 +11,8 @@ export const BigTitleFontSize = height / 35;
 export const TitleFontSize = height / 45;
 export const BorderRadius = height / 200;
 export const ButtonFontSize = height / 60;
-
+export const STATUSBAR_HEIGHT = StatusBar.currentHeight;
+export const APPBAR_HEIGHT = Platform.OS === 'ios' ? 50 : 56;
 
 
 export default StyleSheet.create({
@@ -20,26 +21,26 @@ export default StyleSheet.create({
     Cont: { flex: 1, padding: Margin, },
     CenterCont: { flex: 1, justifyContent: 'center', alignItems: 'center' },
     AlcJcc: { alignItems: 'center', justifyContent: 'center' },
-    
+
     fl1: { flex: 1 },
     fl03: { flex: 0.3 },
     fl07: { flex: 0.7 },
     zIndex9: { zIndex: 9999 },
-    tlRight: {textAlign: 'right'},
-    fl03AlignCenter: {flex:0.3, alignItems:'center'},
-    fl1AlignCenter: { flex: 1, alignItems: 'center'},
+    tlRight: { textAlign: 'right' },
+    fl03AlignCenter: { flex: 0.3, alignItems: 'center' },
+    fl1AlignCenter: { flex: 1, alignItems: 'center' },
     hw100: { height: "100%", width: '100%' },
     Grey54: { color: Colors.Grey54 },
-   
+
     // --------------------- LOGIN SCREEN -------------------------
-    LoginLogo: {  width: width/2,  resizeMode:'contain', height: height/4  },
-    screenTitle: {  fontSize:50, fontWeight: "bold", color: Colors.screenTitleColor },
-    
+    LoginLogo: { width: width / 2, resizeMode: 'contain', height: height / 4 },
+    screenTitle: { fontSize: 50, fontWeight: "bold", color: Colors.screenTitleColor },
+
     // --------------------- LANGUAGE SCREEN -------------------------
-    langLogoCont: { flex:0.3, paddingTop:50, alignItems:'center' },
-    
+    langLogoCont: { flex: 0.3, paddingTop: 50, alignItems: 'center' },
+
     // ----------------------Flat list  -----------------------------
-    myCont: { marginHorizontal: height / 80, marginTop: Platform.OS=== 'android'? height / 80 : -height / 35, padding: height / 80, borderRadius: height / 80, backgroundColor: Colors.Grey89 },
+    myCont: { marginHorizontal: height / 80, marginTop: Platform.OS === 'android' ? height / 80 : -height / 35, padding: height / 80, borderRadius: height / 80, backgroundColor: Colors.Grey89 },
     myContainer: { flex: 1, marginTop: StatusBar.currentHeight || 0 },
     myItem: { backgroundColor: Colors.Grey89, padding: height / 40, marginVertical: height / 160, marginHorizontal: height / 80 },
     myTitle: { fontSize: height / 40 },
@@ -52,42 +53,18 @@ export default StyleSheet.create({
     LoaderCircle: { elevation: 2, width: height / 12, height: height / 12, borderRadius: height / 24, alignItems: 'center', justifyContent: 'center', backgroundColor: Colors.White },
 
 
-    
+
     // --------------------- AUTH SCREEN-------------------------
-    splashTitle: {  fontSize: height /35, fontWeight: "bold",alignSelf:'center', color: Colors.IText },
+    splashTitle: { fontSize: height / 35, fontWeight: "bold", alignSelf: 'center', color: Colors.IText },
 
 
 
 
-    //  --------------------- COMPONENTS -------------------------
+    //  ---------------------Movie COMPONENTS -------------------------
+    movieList: { paddingHorizontal: 3 },
+    movieHeader: { height: APPBAR_HEIGHT + 10 },
 
 
-
-    //  --------------------- GlobalInput -------------------------
-    input_style: { color: Colors.Black, fontSize: TitleFontSize, minHeight: 0 },
-    LabelStyle: { fontSize: TitleFontSize, color: Colors.Grey },
-    DefaultErrorStyle: { height: 0, margin: 0 },
-    IPIconDefaultContainerStyle: { height: 'auto', marginVertical: 0, paddingHorizontal: height / 100 },
-
-
-    //  --------------------- GlobalButton -------------------------
-
-
-
-
-
-
-    // --------------------- SideMenu -------------------------
-
- TopView: { padding: Margin, },
-    SideUserImageStyle: { backgroundColor: 'transparent', borderRadius: height / 15, width: height / 15, height: height / 15, borderColor: Colors.White, },
-    SideUserImageView: { width: height / 10, height: height / 10, borderRadius: height / 20, justifyContent: 'center', alignItems: 'center', borderWidth: width / 20, borderColor: Colors.button, },
-    SideUserImageView1: { width: height / 11.5, height: height / 11.5, borderRadius: height / 23, justifyContent: 'center', alignItems: 'center', borderWidth: width / 20, borderColor: Colors.White },
-    SideUserImageView2: { width: height / 13, height: height / 13, borderRadius: height / 26, justifyContent: 'center', alignItems: 'center', borderWidth: width / 20, borderColor: Colors.White },
-    SideImageDashView: { position: "absolute", bottom: -8, justifyContent: 'flex-end' },
-    SideImageDashTxt: { width: width * 0.8, color: Colors.Grey89, alignSelf: 'flex-end' },
-    ParantDrop: { marginVertical: height / 80, flexDirection: 'row', justifyContent: 'space-between' },
-    parentChildImg: { height: height / 18, width: height / 18, borderRadius: height / 36 },
 
 
 
@@ -111,8 +88,8 @@ export default StyleSheet.create({
 
     NoDataView: { flex: 1, height: height - (height / 7), justifyContent: 'center', alignItems: 'center' },
     NoDataText: { color: Colors.IText, fontWeight: '400', fontSize: height / 45 },
-  
-  
+
+
     w10: { width: '10%' },
     w15: { width: '15%' },
     w20: { width: '20%' },

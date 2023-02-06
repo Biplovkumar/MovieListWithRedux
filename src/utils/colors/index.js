@@ -335,7 +335,7 @@ export default Colors =  {
     LoaderBG                :    'rgba(0,0,0,0.1)',
     ILoaderBG               :    '#36D7B7',
     screenTitleColor        :    '#5474b4',
-   
+    headerBtn               :    "rgb(158,198,116)",
     // Color Code
     
     // Red

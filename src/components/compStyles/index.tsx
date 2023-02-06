@@ -52,16 +52,12 @@ export default StyleSheet.create((props: any) => (
         checkboxCont: { borderRadius: 25, borderColor: Colors.InputLabel, height: 50, justifyContent: 'center', alignItems: 'center', backgroundColor: 'transparent' },
 
 
-        // ----------------------  Thank You -------------------------
+        // ----------------------  Movie Item and Card-------------------------
 
-        ThankuCont: { padding: MinMargin, zIndex: 1, width: width, height: height, alignItems: 'center', position: 'absolute', justifyContent: "center", backgroundColor: Colors.White, },
-        ThankView: { flex: 5, justifyContent: 'flex-end', alignItems: 'center' },
-        ThankView1: { flex: 5, justifyContent: 'flex-start', alignItems: 'center' },
-        ThankViewTitle: { fontSize: height / 20, color: Colors.IText, marginTop: Margin },
-        ThankViewTitle1: { marginTop: Margin, fontSize: height / 48, color: Colors.IText, textAlign: 'center', lineHeight: height / 30 },
-        ThankView2: { marginTop: Margin, height: height / 13, width: width / 1.5, backgroundColor: Colors.button, justifyContent: 'center', alignItems: 'center', borderRadius: height / 150 },
-
-
+        cardCont: { borderRadius: 10, backgroundColor: Colors.White, marginBottom: 20, overflow: 'hidden', shadowColor: Colors.Black, shadowOffset: { width: 0,height: 1,}, shadowOpacity: 0.2, shadowRadius: 1.41, elevation: 2 },
+        cardItemcont: { flex: 1,marginBottom: 12,marginHorizontal: 6, ackgroundColor: Colors.theme2,alignItems: 'center',borderColor: Colors.LightTheme, borderWidth: 0.8 },
+        cardImage: { width: '100%', height: 170 },
+        cardTitle: { fontSize: 14, color: Colors.White, textAlign: 'center', marginVertical: 10, marginHorizontal: 12,},
 
 
 

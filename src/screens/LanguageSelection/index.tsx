@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Text, View, ImageBackground, ActivityIndicator } from 'react-native';
-import { Image } from 'react-native-elements'
+import { Text, View, ImageBackground } from 'react-native';
 import { DispatchData, GetLangData, GetStoreData, navigateTo, resetStack, } from '../../utils/commonFun';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { setLanguage } from '../../redux/actions';
@@ -21,10 +20,6 @@ const LanguageSelection = (props: any) => {
   const [state, setState] = useState({ loading: true, checked: true })
 
   useEffect(() => { checkLangData(); }, []);
-
-  console.log('======lang==============================');
-  console.log();
-  console.log('====================================');
 
   const checkLangData = async () => {
     const lang = GetLangData();

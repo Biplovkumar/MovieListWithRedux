@@ -10,9 +10,7 @@ import { DispatchData, resetStack, validateEmail, validatePass } from '../../uti
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
 import { setUser } from '../../redux/actions';
-import { store } from '../../redux/store/index';
 import CommonButton from '../../components/commonButton';
-import Loader from '../../components/Loader';
 import CommonInput from '../../components/commonInput';
 import colors from '../../utils/colors';
 import styles from '../../utils/styles';
@@ -110,7 +108,8 @@ const Screen1 = (props: any) => {
 
   return (
     <ImageBackground source={config.backgroundImage} style={styles.fl1}>
-      <SafeAreaView onStartShouldSetResponder={() => { onValidateLoginFields(); return true }} style={styles.fl1AlignCenter}>
+      <SafeAreaView onStartShouldSetResponder={() => { onValidateLoginFields(); return true }} 
+       style={state.loading ? styles.fl1 : styles.fl1AlignCenter}>
 
         <ScrollView
           keyboardShouldPersistTaps='always'
@@ -150,8 +149,7 @@ const Screen1 = (props: any) => {
               inputStyle={lang === 'ar' && styles.tlRight}
               errorMessage={state.passError}
               returnKeyType='done'
-              onSubmitEditing={() => { onValidateLoginFields();}}
-              
+              onSubmitEditing={() => { onValidateLoginFields(); return true}}
               onChangeText={(text: any) => setState({ ...state, password: text, passError: '' })}
             />
           </View>

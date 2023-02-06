@@ -1,4 +1,5 @@
 const LIVE = 'https://api.themoviedb.org/3/movie/popular';
+const posterPath = 'https://image.tmdb.org/t/p/original';
 
 
 const HOST = LIVE + 'endpoint';
@@ -8,19 +9,24 @@ const ApiKey = "2f3a10f1811ff5a06df9b2d17f1ff3d6"
 const langKey = "?api_key="
 const languageKey = "&language="
 const pageKey = "&page="
+const ENG = 'en-US'
+const ARBIC = 'ar-SA'
 const LangApi = LIVE + langKey + ApiKey + languageKey
 
-
-const backgroundImage=require("../../../assets/back.png")
-const logoImage=require("../../../assets/logo.png")
-const tmdbLogoImage=require("../../../assets/tmdbLogo.png")
+const backgroundImage = require("../../../assets/back.png")
+const logoImage = require("../../../assets/logo.png")
+const tmdbLogoImage = require("../../../assets/tmdbLogo.png")
 
 export default {
   LIVE: LIVE,
   HOST: HOST,
-  LangApi:LangApi,
-  logoImage:logoImage,
-  tmdbLogoImage:tmdbLogoImage,
-  backgroundImage:backgroundImage,
+  posterPath: posterPath,
+  ENG: ENG,
+  ARBIC: ARBIC,
+  LangApi: LangApi,
+  pageKey: pageKey,
+  logoImage: logoImage,
+  tmdbLogoImage: tmdbLogoImage,
+  backgroundImage: backgroundImage,
 }
 // ?api_key=2f3a10f1811ff5a06df9b2d17f1ff3d6&language=ar-SA&page=1

@@ -9,10 +9,10 @@ import { removeUser } from '../../redux/actions';
 
 
 
-// export const CheckNet = async () => {
-//   const value = await NetInfo.fetch().then(val => { return val.isConnected });
-//   return value
-// };
+export const CheckNet = async () => {
+  const value = await NetInfo.fetch().then(val => { return val.isConnected });
+  return value
+};
 
 
 

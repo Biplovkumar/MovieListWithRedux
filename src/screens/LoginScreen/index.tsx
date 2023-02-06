@@ -112,7 +112,7 @@ const LoginScreen = (props: any) => {
       //Given timeout, so that user ewill see loading for 2 second
       setTimeout(() => {
         setState({...state, loading: true});
-      }, 2000);
+      }, 5000);
       //Given timeout, so that user ewill see loading for 2 second
       setTimeout(() => {
         setState({...state, loading: false});

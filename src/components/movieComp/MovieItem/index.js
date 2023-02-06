@@ -5,6 +5,8 @@ import FastImage from 'react-native-fast-image';
 import Card from '../Card/index';
 import styles from '../../compStyles/index';
 
+//Movie item like image and title
+//react-native-fast-image --for caching the images.
 const MovieItem = ({ movie }) => {
   return (
     <Card style={styles().cardItemcont}>

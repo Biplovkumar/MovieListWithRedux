@@ -16,11 +16,13 @@ function Screen2(props: any) {
   const { t, i18n } = useTranslation();
 
   const [state, setState] = useState({
-    loading: false,
-    MovieList: null, totalPages: 0, currPage: 0, pageCount: 1
+    loading: false, MovieList: null, totalPages: 0, currPage: 0, pageCount: 1
   })
 
-
+  /**
+ * @param {*} GetLangData getting lang data from redux.
+ * @param {*} props.navigation.setOptions setting header logout and change laguage button.
+ */
   useEffect(() => {
     const lang = GetLangData();
     i18n.changeLanguage(lang.data)
@@ -36,14 +38,14 @@ function Screen2(props: any) {
         <Icon name='logout-variant' type='material-community' color={colors.headerBtn}
           onPress={() => { RemoveData(); resetStack(props, SCREEN1); }} />
       )});
-
+   //calling get moving data api
     handleApiData();
 
   }, [props]);
 
 
 
-
+  //calling get moving data api
   const handleApiData = () => {
     setState({ ...state, loading: true })
     const lang = i18n.language
@@ -53,9 +55,8 @@ function Screen2(props: any) {
   }
 
 
+    //calling get moving data api
   const callPopularMovieApi = (URL: any) => {
-    // let data = { name: state.email, pass: state.password }
-    // DispatchData(setUser(data)); resetStack(props, SCREEN2);
     getApiService(URL).then((res) => {
       if (res && res.results && res.results != '') {
         const { results, page, total_pages } = res
@@ -65,6 +66,7 @@ function Screen2(props: any) {
     }).catch((error) => { setState({ ...state, loading: false }); showAlert(error) })
   }
 
+  //Show errors after catching.
   const showAlert = (val: any) => { showMessage({ message: 'Error', description: val, type: 'warning' }) }
 
 
@@ -77,6 +79,8 @@ function Screen2(props: any) {
   //Function 'listFooter', show 'Loader' while fetching more data from server.
   const listFooter = () => <SmallLoader />;
 
+
+  //Movie data flat list
   return (
     <ImageBackground source={config.backgroundImage} style={styles.fl1}>
       <View style={styles.mt50}>

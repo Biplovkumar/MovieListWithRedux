@@ -1,3 +1,4 @@
+//Constant type for redux.
 const Login = 'LOGIN'
 const Logout = 'LOGOUT'
 const ChangeLang = 'ChangeLang'

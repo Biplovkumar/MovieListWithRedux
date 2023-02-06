@@ -1,21 +1,19 @@
-/* eslint-disable prettier/prettier */
 import { Alert } from 'react-native';
 import NetInfo from "@react-native-community/netinfo";
-// import { useSelector } from 'react-redux'
-import { store, persistor } from '../../redux/store/index'
+import { store } from '../../redux/store/index'
 import { removeUser } from '../../redux/actions';
 
 
 
 
-
+//check network is available or not
 export const CheckNet = async () => {
   const value = await NetInfo.fetch().then(val => { return val.isConnected });
   return value
 };
 
 
-
+//check email is valid or not
 export const validateEmail = (email) => {
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
@@ -27,7 +25,7 @@ export const validateMobile = (mobile_number) => {
   return re.test(mobile_number);
 };
 
-
+//validate digit like pin code and all
 export const validateDigit = (val) => {
   var re = /^\d+$/;
   return re.test(val);

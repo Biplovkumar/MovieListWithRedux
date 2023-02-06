@@ -1,7 +1,5 @@
 import { StyleSheet, StatusBar, Dimensions, Platform } from 'react-native';
-import Config from '../config/index/index';
 import Colors from '../colors/index';
-import colors from '../colors/index';
 const { height, width } = Dimensions.get('window');
 let little = height / 7
 export const l_margin = height / 7;
@@ -13,6 +11,10 @@ export const BorderRadius = height / 200;
 export const ButtonFontSize = height / 60;
 export const STATUSBAR_HEIGHT = StatusBar.currentHeight;
 export const APPBAR_HEIGHT = Platform.OS === 'ios' ? 50 : 56;
+
+/**
+ * @param {*} styles All global styles..
+ */
 
 
 export default StyleSheet.create({
@@ -47,18 +49,8 @@ export default StyleSheet.create({
     SaveTitle: { fontWeight: '700', fontSize: height / 35 },
     SaveView: { padding: height / 40, marginVertical: height / 40, backgroundColor: Colors.Grey94 },
 
-    // --------------------- LOADER -------------------------
-    LoaderCont: { zIndex: 1, width: width, height: height / 1.2, alignItems: 'center', position: 'absolute', justifyContent: "center", backgroundColor: Colors.LoaderBG, },
-    ThankuCont: { padding: MinMargin, zIndex: 1, width: width, height: height, alignItems: 'center', position: 'absolute', justifyContent: "center", backgroundColor: Colors.White, },
-    LoaderCircle: { elevation: 2, width: height / 12, height: height / 12, borderRadius: height / 24, alignItems: 'center', justifyContent: 'center', backgroundColor: Colors.White },
-
-
-
-    // --------------------- AUTH SCREEN-------------------------
-    splashTitle: { fontSize: height / 35, fontWeight: "bold", alignSelf: 'center', color: Colors.IText },
-
-
-
+        // --------------------- AUTH SCREEN-------------------------
+        splashTitle: { fontSize: height / 35, fontWeight: "bold", alignSelf: 'center', color: Colors.IText },
 
     //  ---------------------Movie COMPONENTS -------------------------
     movieList: { paddingHorizontal: 3 },
@@ -66,26 +58,7 @@ export default StyleSheet.create({
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //----------------------- NoData ------------------------ 
-
     NoDataView: { flex: 1, height: height - (height / 7), justifyContent: 'center', alignItems: 'center' },
     NoDataText: { color: Colors.IText, fontWeight: '400', fontSize: height / 45 },
 

@@ -14,13 +14,17 @@ import '../../utils/translation/i18n';
 import { useTranslation } from 'react-i18next';
 import { SCREEN1, SCREEN2 } from '../../route/index';
 
+
 const LanguageSelection = (props: any) => {
 
   const { t, i18n } = useTranslation();
   const [state, setState] = useState({ loading: true, checked: true })
 
+  //Getting language data
   useEffect(() => { checkLangData(); }, []);
 
+
+  //check default lang data and change language according to the redux
   const checkLangData = async () => {
     const lang = GetLangData();
     i18n.changeLanguage(lang.data)
@@ -29,6 +33,7 @@ const LanguageSelection = (props: any) => {
   }
 
 
+  //submit button press after selected the language
   const onPressSubmit = () => {
     const userloggedin = GetStoreData();
     let data = { data: state.checked ? 'en' : 'ar' }
@@ -38,7 +43,7 @@ const LanguageSelection = (props: any) => {
   }
 
 
-
+  //LogoImage added in useCallback so that will prevent re rendering
   const LogoImage = useCallback(() => {
     return (
       <View style={styles.langLogoCont}>
@@ -49,7 +54,7 @@ const LanguageSelection = (props: any) => {
     )
   }, [])
 
-
+  //select language title added in useCallback so that will prevent re rendering
   const SelectLang = useCallback(() => {
     return (
       <View style={styles.mv20}>
@@ -58,9 +63,12 @@ const LanguageSelection = (props: any) => {
     )
   }, [])
 
+  //select method for setting data in state 
   const uncheckBox = () => setState({ ...state, checked: !state.checked })
 
 
+
+  //1 title, 2 checkbox for selection Language and one submit button.
   return (
     <ImageBackground source={config.backgroundImage} style={styles.fl1}>
       <SafeAreaView style={styles.fl1AlignCenter}>
@@ -90,7 +98,7 @@ const LanguageSelection = (props: any) => {
           />
 
 
-         <View style={styles.h30} />
+          <View style={styles.h30} />
 
           <CommonButton
             title={t("submit")}

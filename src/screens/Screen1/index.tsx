@@ -1,11 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import {
-  Text,
-  View,
-  ImageBackground,
-  Keyboard,
-  TextInput
-} from 'react-native';
+import { Text, View, ImageBackground, Keyboard, TextInput } from 'react-native';
 import { DispatchData, resetStack, validateEmail, validatePass } from '../../utils/commonFun';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -19,19 +13,15 @@ import { useTranslation } from 'react-i18next';
 import CommonImage from '../../components/commonImage';
 import { SCREEN2 } from '../../route/index';
 
-
-
-
-
+//Login screen 
 const Screen1 = (props: any) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language
+
+  //get the reference of Inputs
   const emailRef = React.useRef<TextInput | null>(null);
   const passRef = React.useRef<TextInput | null>(null);
 
-  console.log('======login==============================');
-  console.log();
-  console.log('====================================');
   const [state, setState] = useState({
     email: '', emailError: '',
     password: '', passError: '',
@@ -39,13 +29,14 @@ const Screen1 = (props: any) => {
   })
 
 
+  //saving User data via Common function
   const handleAddUserData = () => {
     let data = { name: state.email, pass: state.password }
     DispatchData(setUser(data)); resetStack(props, SCREEN2);
   }
 
 
-
+   //Validion of fields
   const onValidateLoginFields = () => {
     // Do something about login operation
     Keyboard.dismiss()
@@ -79,18 +70,22 @@ const Screen1 = (props: any) => {
 
       setState({ ...state, passError: '', emailError: '', btnDisabled: false })
 
+
+      //Given timeout, so that user ewill see loading for 2 second
       setTimeout(() => { setState({ ...state, loading: true }) }, 2000);
+      //Given timeout, so that user ewill see loading for 2 second
       setTimeout(() => { setState({ ...state, loading: false }); handleAddUserData(); }, 3000);
     }
   };
 
 
-
+  // Do something about login operation (Button Click)
   const onPressLogin = () => {
     onValidateLoginFields()
-    // Do something about login operation
   };
 
+
+  //Logo Image
   const LogoImage = useCallback(() => {
     return (
       <View style={styles.fl03AlignCenter}>
@@ -105,7 +100,7 @@ const Screen1 = (props: any) => {
   }, [])
 
 
-
+//2 inputs and 1 submit button for saving the user data.
   return (
     <ImageBackground source={config.backgroundImage} style={styles.fl1}>
       <SafeAreaView onStartShouldSetResponder={() => { onValidateLoginFields(); return true }} style={styles.fl1}>

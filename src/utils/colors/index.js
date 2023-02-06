@@ -271,6 +271,7 @@ export default Colors =  {
     Grey85	                :	 'rgb(218,218,218)' ,        // #dadada	
     Grey89	                :	 'rgb(228,228,228)' ,        // #e4e4e4	
     Grey93	                :	 'rgb(238,238,238)' ,        // #eeeeee	
+   //some important colors decleared by myself
     Grey94	                :	 '#cccccc' ,        //	
     Gray97                  :    '#F7F7F7',
     Gray86                  :    '#DBDBDB',

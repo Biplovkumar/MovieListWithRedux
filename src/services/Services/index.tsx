@@ -1,14 +1,13 @@
 /**
  *
- * @param {*} obj scope of the class from where it is called.
- * @param {*} endpoint API endpoint.
- * @param {*} data Body if data is to be sent.
+ * @param {*} CheckNet for checking network is available or not.
+ * @param {*} getApiService API Request function name.
+ * @param {*} authOptions Param if data is to be sent.
  * @param {*} returnMethod callback to main component.
  * @param {*} type Method i.e. POST,GET,DELETE etc.
- * @param {*} loader Whether loader is to be shown or not (boolean).
+ * @param {*} handleErrors it is for catching the errors..
  */
 
-import React, { Component } from 'react';
 //axios is a library for react native for API calling
 import axios from 'axios';
 //for host & Apis url

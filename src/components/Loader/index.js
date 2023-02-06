@@ -2,7 +2,7 @@ import React from "react";
 import { ActivityIndicator, View } from "react-native";
 import Colors from '../../utils/styles/index'
 import Styles from '../compStyles/index'
-//Loader Component
+//Loader Component for loading apis 
 const Loader = (props) => {
   return (
     <View style={[Styles().LoaderCont, props.viewStyle]}>

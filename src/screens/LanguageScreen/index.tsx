@@ -76,7 +76,7 @@ const LanguageScreen = (props: any) => {
   const uncheckBox = () => setState({...state, checked: !state.checked});
 
   //1 title, 2 checkbox for selection Language and one submit button.
-  let Arbic = 'Arbic';
+  let Arbic = 'Arabic';
   let English = 'English';
   return (
     <ImageBackground source={config.backgroundImage} style={styles.fl1}>

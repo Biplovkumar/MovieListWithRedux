@@ -8,11 +8,11 @@ import CommonCheckBox from '../../components/commonCheckBox';
 import CommonImage from '../../components/commonImage';
 import Loader from '../../components/Loader';
 import colors from '../../utils/colors/index';
-import config from '../../utils/config/index';
+import config from '../../utils/config/index/index';
 import styles from '../../utils/styles/index';
 import '../../utils/translation/i18n';
 import { useTranslation } from 'react-i18next';
-import { SCREEN1, SCREEN2 } from '../../route/index';
+import { LOGIN_SCREEN, MOVIE_SCREEN } from '../../route/index';
 
 
 const LanguageSelection = (props: any) => {
@@ -39,7 +39,7 @@ const LanguageSelection = (props: any) => {
     let data = { data: state.checked ? 'en' : 'ar' }
     DispatchData(setLanguage(data))
     i18n.changeLanguage(state.checked ? 'en' : 'ar')
-    if (userloggedin) { resetStack(props, SCREEN2) } else { navigateTo(props, SCREEN1) }
+    if (userloggedin) { resetStack(props, MOVIE_SCREEN) } else { navigateTo(props, LOGIN_SCREEN) }
   }
 
 
@@ -69,6 +69,8 @@ const LanguageSelection = (props: any) => {
 
 
   //1 title, 2 checkbox for selection Language and one submit button.
+  let Arbic = 'Arbic'
+  let English = 'English'
   return (
     <ImageBackground source={config.backgroundImage} style={styles.fl1}>
       <SafeAreaView style={styles.fl1AlignCenter}>
@@ -82,19 +84,19 @@ const LanguageSelection = (props: any) => {
           <SelectLang />
 
           <CommonCheckBox
-            title={`English`}
+            title={English}
             checked={state.checked}
             textStyle={{ color: state.checked ? colors.theme2 : colors.Silver }}
-            onPress={() => uncheckBox()}
+            onPress={uncheckBox}
           />
 
           <View style={styles.h50} />
 
           <CommonCheckBox
-            title={`Arbic`}
+            title={Arbic}
             textStyle={{ color: !state.checked ? colors.theme2 : colors.Silver }}
             checked={!state.checked}
-            onPress={() => uncheckBox()}
+            onPress={uncheckBox}
           />
 
 
@@ -102,7 +104,7 @@ const LanguageSelection = (props: any) => {
 
           <CommonButton
             title={t("submit")}
-            onPress={() => onPressSubmit()}
+            onPress={onPressSubmit}
           />
 
         </View>

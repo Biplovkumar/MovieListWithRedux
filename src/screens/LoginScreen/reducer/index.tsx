@@ -5,7 +5,7 @@ const LoginStatus = {
 }
 
 // For saving user's data.
-export const loginReducer = (state = LoginStatus, action:any) => {
+export const loginReducer = (state = LoginStatus, action: any) => {
     switch (action.type) {
         case Type.LOGIN:
             return {

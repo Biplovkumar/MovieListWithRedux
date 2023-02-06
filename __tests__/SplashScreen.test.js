@@ -1,12 +1,12 @@
 import React from 'react';
-import {render, act, cleanup, waitFor} from '@testing-library/react-native';
-import SplashScreen from '../src/screens/LanguageSelection/index';
+import { render, act, cleanup, waitFor } from '@testing-library/react-native';
+import SplashScreen from '../src/screens/LanguageScreen/index';
 import thunk from 'redux-thunk';
 
-import {createStore, combineReducers, applyMiddleware} from 'redux';
-import {Provider} from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import userReducer from '../src/redux/reducers/index';
-import languageReducer from '../src/screens/LanguageSelection/reducer/index';
+import languageReducer from '../src/screens/LanguageScreen/reducer/index';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -27,7 +27,7 @@ describe('SplashScreen', () => {
   });
 
   it('should render correctly and navigate to the correct screen', async () => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <Provider store={store}>
         <SplashScreen />
       </Provider>,
@@ -41,13 +41,13 @@ describe('SplashScreen', () => {
     act(() => {
       store.dispatch({
         type: 'SET_USER',
-        payload: {user: {id: 1, name: 'User 1'}},
+        payload: { user: { id: 1, name: 'User 1' } },
       });
     });
     act(() => {
       store.dispatch({
         type: 'SET_LANGUAGE',
-        payload: {selectedLanguage: {code: 'en'}},
+        payload: { selectedLanguage: { code: 'en' } },
       });
     });
   });

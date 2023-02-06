@@ -8,13 +8,13 @@ import CommonButton from '../../components/commonButton';
 import CommonInput from '../../components/commonInput';
 import colors from '../../utils/colors';
 import styles from '../../utils/styles';
-import config from '../../utils/config/index';
+import config from '../../utils/config/index/index';
 import { useTranslation } from 'react-i18next';
 import CommonImage from '../../components/commonImage';
-import { SCREEN2 } from '../../route/index';
+import { MOVIE_SCREEN } from '../../route/index';
 
 //Login screen 
-const Screen1 = (props: any) => {
+const LoginScreen = (props: any) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language
 
@@ -32,11 +32,11 @@ const Screen1 = (props: any) => {
   //saving User data via Common function
   const handleAddUserData = () => {
     let data = { name: state.email, pass: state.password }
-    DispatchData(setUser(data)); resetStack(props, SCREEN2);
+    DispatchData(setUser(data)); resetStack(props, MOVIE_SCREEN);
   }
 
 
-   //Validion of fields
+  //Validion of fields
   const onValidateLoginFields = () => {
     // Do something about login operation
     Keyboard.dismiss()
@@ -89,7 +89,7 @@ const Screen1 = (props: any) => {
   const LogoImage = useCallback(() => {
     return (
       <View style={styles.fl03AlignCenter}>
-        <Text style={styles.screenTitle}>{t('Screen1')}</Text>
+        <Text style={styles.screenTitle}>{t('LoginScreen')}</Text>
         <View style={styles.langLogoCont}>
           <CommonImage
             source={config.tmdbLogoImage}
@@ -100,10 +100,23 @@ const Screen1 = (props: any) => {
   }, [])
 
 
-//2 inputs and 1 submit button for saving the user data.
+  //Press outside the input view
+  const backDropPress = () => { onValidateLoginFields(); return true; }
+
+  const emailOnSubmit = () => { onValidateLoginFields(); passRef.current?.focus(); }
+  const emailOnChange = (text: any) => setState({ ...state, email: text, emailError: '' });
+  const passOnChange = (text: any) => setState({ ...state, password: text, passError: '' });
+
+  //2 inputs and 1 submit button for saving the user data.
+  let emailIcon = { type: 'material-community', name: 'email-edit-outline' }
+  let passIcon = { type: 'material', name: 'lock-outline' }
+
+
+  let eng = lang === 'en'
+
   return (
     <ImageBackground source={config.backgroundImage} style={styles.fl1}>
-      <SafeAreaView onStartShouldSetResponder={() => { onValidateLoginFields(); return true }} style={styles.fl1}>
+      <SafeAreaView onStartShouldSetResponder={backDropPress} style={styles.fl1}>
 
         <ScrollView
           keyboardShouldPersistTaps='always'
@@ -120,14 +133,15 @@ const Screen1 = (props: any) => {
               value={state.email}
               label={t("email")}
               keyboardType="email-address"
-              labelStyle={{ color: state.email ? colors.InputLabel : colors.trans }}
-              leftIcon={lang === 'en' && { type: 'material-community', name: 'email-edit-outline' }}
-              rightIcon={lang === 'ar' && { type: 'material-community', name: 'email-edit-outline' }}
-              inputStyle={lang === 'ar' && styles.tlRight}
+              leftIcon={eng && emailIcon}
+              rightIcon={!eng && emailIcon}
+              inputStyle={!eng && styles.tlRight}
               errorMessage={state.emailError}
               returnKeyType='next'
-              onSubmitEditing={() => { onValidateLoginFields(); passRef.current?.focus(); }}
-              onChangeText={(text: any) => setState({ ...state, email: text, emailError: '' })}
+              onSubmitEditing={emailOnSubmit}
+              onChangeText={emailOnChange}
+              labelStyle={{ color: state.email ? colors.InputLabel : colors.trans }}
+
             />
 
             <CommonInput
@@ -137,14 +151,14 @@ const Screen1 = (props: any) => {
               value={state.password}
               maxLength={15}
               label={t("password")}
-              labelStyle={{ color: state.password ? colors.InputLabel : colors.trans }}
-              leftIcon={lang === 'en' && { type: 'material', name: 'lock-outline' }}
-              rightIcon={lang === 'ar' && { type: 'material', name: 'lock-outline' }}
-              inputStyle={lang === 'ar' && styles.tlRight}
+              leftIcon={eng && passIcon}
+              rightIcon={!eng && passIcon}
+              inputStyle={!eng && styles.tlRight}
               errorMessage={state.passError}
               returnKeyType='done'
-              onSubmitEditing={() => { onValidateLoginFields(); return true }}
-              onChangeText={(text: any) => setState({ ...state, password: text, passError: '' })}
+              onSubmitEditing={backDropPress}
+              onChangeText={passOnChange}
+              labelStyle={{ color: state.password ? colors.InputLabel : colors.trans }}
             />
 
             <CommonButton
@@ -155,9 +169,6 @@ const Screen1 = (props: any) => {
             />
           </View>
 
-
-
-
           <View style={styles.h50} />
         </ScrollView>
       </SafeAreaView>
@@ -166,4 +177,4 @@ const Screen1 = (props: any) => {
 }
 
 
-export default Screen1;
+export default LoginScreen;

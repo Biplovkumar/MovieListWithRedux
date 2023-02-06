@@ -1,17 +1,17 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Screen1 from '../screens/Screen1/index'
-import Screen2 from '../screens/Screen2/index'
-import LanguageSelection from '../screens/LanguageSelection/index'
+import LoginScreen from '../screens/LoginScreen/index'
+import MovieScreen from '../screens/MovieScreen/index'
+import LanguageScreen from '../screens/LanguageScreen/index'
 import { GetStoreData } from '../utils/commonFun';
+import { LOGIN_SCREEN, MOVIE_SCREEN, LANGUAGE_SCREEN } from '../route';
 
 //created stack instance
 const Stack = createNativeStackNavigator();
 import '../utils/translation/i18n';
 
 //Contant Route for navigation
-import { SCREEN1, SCREEN2, LANGUAGE_SCREEN } from '../route';
 
 function MainRoute() {
 
@@ -20,13 +20,13 @@ function MainRoute() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerTitleAlign: "center" }} initialRouteName={!userloggedin ? "LanguageSelection" : "Screen2"}>
+      <Stack.Navigator screenOptions={{ headerTitleAlign: "center" }} initialRouteName={!userloggedin ? LANGUAGE_SCREEN : MOVIE_SCREEN}>
         {/* //Change Language screen */}
-        <Stack.Screen name={LANGUAGE_SCREEN} component={LanguageSelection} options={{ headerShown: false }} />
+        <Stack.Screen name={LANGUAGE_SCREEN} component={LanguageScreen} options={{ headerShown: false }} />
         {/* //Login screen */}
-        <Stack.Screen name={SCREEN1} component={Screen1} options={{ headerShown: false }} />
+        <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} options={{ headerShown: false }} />
         {/* //Movie list screen */}
-        <Stack.Screen name={SCREEN2} component={Screen2} options={{ headerTitleStyle: { fontWeight: 'bold'}}} />
+        <Stack.Screen name={MOVIE_SCREEN} component={MovieScreen} options={{ headerTitleStyle: { fontWeight: 'bold' } }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

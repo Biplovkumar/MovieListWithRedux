@@ -1,18 +1,18 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlatList, ImageBackground, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { useTranslation } from 'react-i18next';
 import { GetLangData, navigateTo, RemoveData, resetStack } from '../../utils/commonFun';
-import { SCREEN1 } from '../../route';
+import { LOGIN_SCREEN } from '../../route';
 import { getApiService } from '../../services/Services';
-import config from '../../utils/config/index';
+import config from '../../utils/config/index/index';
 import styles from '../../utils/styles';
 import MovieItem from '../../components/movieComp/MovieItem';
 import SmallLoader from '../../components/smallLoader/index';
 import { showMessage } from 'react-native-flash-message';
 import colors from '../../utils/colors';
 
-function Screen2(props: any) {
+function MovieScreen(props: any) {
   const { t, i18n } = useTranslation();
 
   const [state, setState] = useState({
@@ -36,9 +36,11 @@ function Screen2(props: any) {
       ),
       headerRight: () => (
         <Icon name='logout-variant' type='material-community' color={colors.headerBtn}
-          onPress={() => { RemoveData(); resetStack(props, SCREEN1); }} />
-      )});
-   //calling get moving data api
+          onPress={() => { RemoveData(); resetStack(props, LOGIN_SCREEN); }} />
+      )
+    });
+
+    //calling get moving data api
     handleApiData();
 
   }, [props]);
@@ -55,7 +57,7 @@ function Screen2(props: any) {
   }
 
 
-    //calling get moving data api
+  //calling get moving data api
   const callPopularMovieApi = (URL: any) => {
     getApiService(URL).then((res) => {
       if (res && res.results && res.results != '') {
@@ -87,10 +89,10 @@ function Screen2(props: any) {
         <FlatList
           style={styles.movieList}
           data={state.MovieList}
+          extraData={state.MovieList}
           renderItem={renderItem}
           numColumns={2}
-          onMomentumScrollBegin={() => { const onEndReachedCalledDuringMomentum = false;}}
-          keyExtractor={(item, index) => String(item?.id)}
+          keyExtractor={(item) => String(item?.id)}
           onEndReached={() => handleApiData()}
           onEndReachedThreshold={0.75}
           ListFooterComponent={listFooter}
@@ -103,4 +105,4 @@ function Screen2(props: any) {
 
 
 
-export default Screen2;
+export default MovieScreen;

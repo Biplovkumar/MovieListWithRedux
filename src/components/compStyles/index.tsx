@@ -54,10 +54,10 @@ export default StyleSheet.create((props: any) => (
 
         // ----------------------  Movie Item and Card-------------------------
 
-        cardCont: { borderRadius: 10, backgroundColor: Colors.White, marginBottom: 20, overflow: 'hidden', shadowColor: Colors.Black, shadowOffset: { width: 0,height: 1,}, shadowOpacity: 0.2, shadowRadius: 1.41, elevation: 2 },
-        cardItemcont: { flex: 1,marginBottom: 12,marginHorizontal: 6, ackgroundColor: Colors.theme2,alignItems: 'center',borderColor: Colors.LightTheme, borderWidth: 0.8 },
+        cardCont: { borderRadius: 10, backgroundColor: Colors.White, marginBottom: 20, overflow: 'hidden', shadowColor: Colors.Black, shadowOffset: { width: 0, height: 1, }, shadowOpacity: 0.2, shadowRadius: 1.41, elevation: 2 },
+        cardItemcont: { flex: 1, marginBottom: 12, marginHorizontal: 6, ackgroundColor: Colors.theme2, alignItems: 'center', borderColor: Colors.LightTheme, borderWidth: 0.8 },
         cardImage: { width: '100%', height: 170 },
-        cardTitle: { fontSize: 14, color: Colors.White, textAlign: 'center', marginVertical: 10, marginHorizontal: 12,},
+        cardTitle: { fontSize: 14, color: Colors.White, textAlign: 'center', marginVertical: 10, marginHorizontal: 12, },
 
 
         fl1: { flex: 1 },
@@ -87,23 +87,3 @@ export default StyleSheet.create((props: any) => (
 
 
 
-
-
-const margin = height / 80;
-const borderradius = height / 150
-const UpArror = 'chevron-up'
-const DownArror = 'chevron-down'
-const TypeArrow = 'entypo'
-const SideArror = 'chevron-right'
-let pickerHeight = 0;
-const MaxPickerHeight = height / 1.5
-const HeaderFontSize = height / 32
-const TitleBigFontSize = height / 43
-const HeaderMediumFontSize = height / 35
-const TitleSemiBigFontSize = height / 48
-const TitleMediumFontSize = height / 55
-const TitleSmallFontSize = height / 60
-const TitleSemiSmallFontSize = height / 73
-
-const PriceFontSize = height / 52
-const PickerFontSize = height / 50

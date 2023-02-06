@@ -32,5 +32,32 @@
          4. Run the application with yarn ios/android.
 
 
+#Done Tasks application: 
+
+       1. Created Language change screen
+       2. Created Login screen
+       3. Created Movie screen
+       4. Done Redux setup
+       5. Added multi language in app.
+       6. created splash and app icon for both platform.
+       7. Save user data and saved language in redux
+       8. If user save their data then 2 nd time app will be open from movie screen.
+       9. Created components mostly, so that code will be re usable.
+      10.Uses callback in some places so that prevent re-0rendering again and again
+      11. Done login all validation with regex also
+      12. Written some unit test cases.
+      13. Using Restful Web APIs load the list of popular Movies on this screen in a grid view with number of columns as 2.
+          Each Item contains the name and image. Name to be taken from the “title” and image from “poster_path” from the response. 
+        14. time to time git commit so that backup code easily.
+        15. Comment given and pushed code on Public repo.
+
+
+
+
+        Thanks and regard 
+        Biplov Kumar
+
+
+
 
 

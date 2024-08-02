@@ -41,7 +41,40 @@ const LoginScreen = (props: any) => {
   //Getting language data
   useEffect(() => {
     checkLangData();
+    // testLogic()
+
+
   }, []);
+
+
+
+
+  // const testLogic = () => {
+  // let hi = [1,6,3,9,4,2,6,7]
+  // //Step 1
+  // // hi.sort()
+
+  //  //step 2
+  //  sortData(hi)
+  // }
+
+  // const sortData = (val: any) => {
+  //   var done = false;
+  //   while (!done) {
+  //     done = true;
+  //     for (var i = 1; i < val.length; i+=1) {
+  //       if (val[i - 1] > val[i]) {
+  //         done = false;
+  //         var temp = val[i - 1];
+  //         val[i - 1] = val[i];
+  //         val[i] = temp;
+  //       }
+  //     }
+  //   }
+  //   return val;
+  // };
+
+
 
   //check default lang data and change language according to the redux
   const checkLangData = async () => {
